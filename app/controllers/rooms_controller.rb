@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    @github_login_url = GITHUB_LOGIN_URL
 
     respond_to do |format|
       format.html # index.html.erb
