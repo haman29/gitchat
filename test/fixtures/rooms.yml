@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  max_head_count: 1
+  created_at: 2013-02-02
+  updated_at: 2013-02-02
+  deleted_at: 2013-02-02
+  del_flg: false
+  version: 1
+
+two:
+  name: MyString
+  max_head_count: 1
+  created_at: 2013-02-02
+  updated_at: 2013-02-02
+  deleted_at: 2013-02-02
+  del_flg: false
+  version: 1

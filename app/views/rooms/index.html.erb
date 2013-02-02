@@ -1,0 +1,35 @@
+<h1>Listing rooms</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Max head count</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Deleted at</th>
+    <th>Del flg</th>
+    <th>Version</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rooms.each do |room| %>
+  <tr>
+    <td><%= room.name %></td>
+    <td><%= room.max_head_count %></td>
+    <td><%= room.created_at %></td>
+    <td><%= room.updated_at %></td>
+    <td><%= room.deleted_at %></td>
+    <td><%= room.del_flg %></td>
+    <td><%= room.version %></td>
+    <td><%= link_to 'Show', room %></td>
+    <td><%= link_to 'Edit', edit_room_path(room) %></td>
+    <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Room', new_room_path %>
