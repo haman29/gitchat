@@ -12,17 +12,43 @@ class LoginController < ApplicationController
       end
     end
 
+    # uri = ['https://', Settings.github.host, Settings.github.access_token_path].join
+    # @post = Net::HTTP.post_form(URI.parse(uri), post_params)
+    # https = Net::HTTP.new(Settings.github.host, 443)
+    # https.use_ssl = true
+    # https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    # https.start { |w|
+        # response = w.get('/')
+          # puts response.body
+    # }
+
+    ###
     # access_token を取得するため，postリクエストする
-    uri = ['https://', Settings.github.host, Settings.github.access_token_path].join
-    post_params = {
+    ###
+    request = Net::HTTP::Post.new(
+      Settings.github.path,
+      {'Content-Type' =>'application/json'}, # initheader
+    )
+    request.body = {
       :client_id     => Settings.github.client_id,
       :client_secret => Settings.github.client_secret,
       :code          => code,
-    }
-    p URI.parse(uri)
-    p post_params
-    @post = Net::HTTP.post_form(URI.parse(uri), post_params)
-    # render :text => post
+    }.to_json
+
+    http = Net::HTTP.new(Settings.github.host, '443')
+    http.use_ssl = true
+
+    # 証明書を使わない
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    # for debug
+    http.set_debug_output $stderr
+
+    @response = nil
+    http.start do |h|
+      @response = h.request(request)
+    end
+    render :text => @response
   end
 
   def access_token
