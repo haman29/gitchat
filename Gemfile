@@ -6,12 +6,8 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
-group :production do
-  gem 'pg'
-end
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'pg', groups: %w(production), require: false
+gem 'sqlite3', groups: %w(test development), require: false
 
 
 
@@ -42,7 +38,9 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+group :development, :test do
+  gem 'debugger'
+end
 
 # To use GitHub v3 API
 gem 'octokit'
