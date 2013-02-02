@@ -1,40 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @room.name %>
-</p>
-
-<p>
-  <b>Max head count:</b>
-  <%= @room.max_head_count %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%= @room.created_at %>
-</p>
-
-<p>
-  <b>Updated at:</b>
-  <%= @room.updated_at %>
-</p>
-
-<p>
-  <b>Deleted at:</b>
-  <%= @room.deleted_at %>
-</p>
-
-<p>
-  <b>Del flg:</b>
-  <%= @room.del_flg %>
-</p>
-
-<p>
-  <b>Version:</b>
-  <%= @room.version %>
-</p>
-
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+<h2><%= @room.name %></h2>
+<%= subscribe_to "/rooms/#{@room.id}" %>
+<%= form_tag({:controller => 'message', :action => 'create.js'}, :remote => true) do %>
+  <div class="field">
+    <%= text_field_tag 'message' %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag 'room_id', @room.id %>
+  </div>
+  <%= submit_tag 'POST' %>
+<% end %>
+<table id="chat">
+</table>
