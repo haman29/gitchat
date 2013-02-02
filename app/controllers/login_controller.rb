@@ -25,8 +25,9 @@ class LoginController < ApplicationController
     ###
     # access_token を取得するため，postリクエストする
     ###
+    p Settings
     request = Net::HTTP::Post.new(
-      Settings.github.path,
+      Settings.github.access_token_path,
       {'Content-Type' =>'application/json'}, # initheader
     )
     request.body = {
@@ -48,7 +49,7 @@ class LoginController < ApplicationController
     http.start do |h|
       @response = h.request(request)
     end
-    render :text => @response
+    render :text => @response.body
   end
 
   def access_token
