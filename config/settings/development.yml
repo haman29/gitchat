@@ -1,0 +1,6 @@
+own:
+  host: 'localhost:3000'
+
+github:
+  client_id:     'ae7476fc103f4df71037'
+  client_secret: '5a12499dfa885c49a8aba1d241d0e15f62b0800a'

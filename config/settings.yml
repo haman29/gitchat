@@ -1,0 +1,3 @@
+github:
+  host: 'github.com'
+  auth_path: '/login/oauth/authorize'

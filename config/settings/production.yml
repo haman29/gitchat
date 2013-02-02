@@ -1,0 +1,6 @@
+own:
+  host: 'gitchat.herokuapp.com'
+
+github:
+  client_id:     '8f67dbfeb292bb5c9733'
+  client_secret: '6f011df0a04585482ef58905187577c0699ccacb'
