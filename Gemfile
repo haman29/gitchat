@@ -52,3 +52,7 @@ gem "twitter-bootstrap-rails"
 
 # To use manage Constants each environment
 gem 'rails_config'
+
+# To use Real Time Messaging
+gem 'private_pub'
+gem 'thin'
