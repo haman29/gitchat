@@ -30,6 +30,7 @@
               <li><%= link_to "NEW", new_room_path  %></li>
               <li><%= link_to "LEAVE", "/"  %></li>
               <li><%= link_to "LOGIN", @github_login_url %></li>
+              <li><%= link_to "LOGOUT", '/logout' %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -38,7 +39,19 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span9">
+        <% if @user then %>
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">YOUR PROFILE</li>
+              <li><%= image_tag @user.avatar_url %></li>
+              <li>NAME: <%= @user.name %></li>
+              <li>LOCATION: <%= @user.location %></li>
+            </ul>
+          </div><!--/.well -->
+        </div>
+        <% end %>
+        <div class="span7">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

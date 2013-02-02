@@ -1,6 +1,7 @@
 Gitchat::Application.routes.draw do
   resources :rooms
   resources :login
+  resources :logout
 
 
   # The priority is based upon order of creation:
