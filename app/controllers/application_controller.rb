@@ -21,8 +21,5 @@ class ApplicationController < ActionController::Base
       client = Octokit::Client.new(:login => "me",  :oauth_token => session[:access_token])
       @user = client.user
     end
-    # unless @user
-      # redirect_to '/'
-    # end
   end
 end
