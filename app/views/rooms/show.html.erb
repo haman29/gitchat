@@ -1,7 +1,7 @@
 <h5><%= @room.name %></h5>
 <%= subscribe_to "/rooms/#{@room.id}" %>
 <%= form_tag({:controller => 'message', :action => 'create.js'}, :remote => true) do %>
-  <%= text_field_tag('message', '', {:id => 'chat_text_box'}) %>
+  <%= text_field_tag(:message, '', {:id => 'chat_text_box'}) %>
   <%= hidden_field_tag 'room_id', @room.id %>
   <%= submit_tag 'POST' %>
 <% end %>
