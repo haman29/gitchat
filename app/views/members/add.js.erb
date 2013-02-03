@@ -1,0 +1,4 @@
+<% publish_to "/rooms/#{@partial_message[:room_id]}" do %>
+  $('#members_count').text(parseInt($('#members_count').text()) + 1);
+  $('#members').prepend("<%= j render(@partial_message) %>");
+<% end %>

@@ -1,23 +1,9 @@
+<h5><%= @room.name %></h5>
 <%= subscribe_to "/rooms/#{@room.id}" %>
 <%= form_tag({:controller => 'message', :action => 'create.js'}, :remote => true) do %>
-  <div class="field">
-    <%= text_field_tag 'message' %>
-  </div>
-  <div class="field">
-    <%= hidden_field_tag 'room_id', @room.id %>
-  </div>
+  <%= text_field_tag 'message' %>
+  <%= hidden_field_tag 'room_id', @room.id %>
   <%= submit_tag 'POST' %>
 <% end %>
-<table id="chat">
+<table id="chat" class="common-table table-striped table-condensed">
 </table>
-
-<% content_for :members do %>
-  <div class="span3">
-    <div class="well sidebar-nav">
-      <ul class="nav nav-list">
-        <li class="nav-header"><%= @room.name %></li>
-        <li class="nav-header"><span id="menber_count">0</span> MEMBERS</li>
-      </ul>
-    </div><!--/.well -->
-  </div><!--/span-->
-<% end %>

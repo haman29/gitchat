@@ -1,13 +1,11 @@
-<h1>Chat rooms</h1>
-
 <table>
 <% @rooms.each do |room| %>
   <tr>
-    <td><%= room.name %></td>
-    <td>0 menbers</td>
     <% if session[:access_token] then %>
-      <td><%= link_to 'Show', room %></td>
+      <td><%= link_to room.name, room %></td>
       <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% else %>
+      <td><%= room.name %></td>
     <% end %>
   </tr>
 <% end %>
