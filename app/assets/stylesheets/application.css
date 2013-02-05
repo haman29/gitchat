@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+img#nav_icon {
+  height: 25px;
+  width: 25px;
+}

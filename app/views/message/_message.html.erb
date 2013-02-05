@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= @user.name %><br />
+    <%= @user.login %><br />
     <%= link_to image_tag(@user.avatar_url), "https://github.com/#{@user.login}" %>
   </td>
   <td><%= @partial_message[:object][1] %></td>
